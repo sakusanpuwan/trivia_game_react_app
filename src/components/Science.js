@@ -1,8 +1,12 @@
-const Science = () => {
+import { useState } from "react";
+import QuestionList from "./QuestionList";
+const Science = ({questions}) => {
+
 
     return (
         <>
-            <p>Science</p>
+            <h2>Science Questions!</h2>
+            <QuestionList questions = {questions}/>
         </>
     )
 }

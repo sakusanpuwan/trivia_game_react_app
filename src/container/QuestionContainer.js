@@ -10,23 +10,40 @@ import { useEffect, useState } from "react";
 const QuestionContainer = () => {
 
     const [questions,setQuestions] = useState([]);
-    const [generalQuestions,setGeneralQuestions] = useState([]);
+    const [scienceQuestions,setScienceQuestions] = useState([]);
+    const [historyQuestions,setHistoryQuestions] = useState([]);
+    const [entertainmentQuestions,setEntertainmentQuestions] = useState([]);
+
 
     const fetchData = async () => {
         const response = await fetch("https://opentdb.com/api.php?amount=50&difficulty=easy&type=boolean");
         const data = await response.json();
         setQuestions(data.results);
+        setHistoryQuestions(getHistoryQuestions(data.results))
+        setScienceQuestions(getScienceQuestions(data.results))
+        setEntertainmentQuestions(getEntertainmentQuestions(data.results))
     } 
 
     useEffect(() => {
         fetchData();
     },[])
 
-    // const getGeneralQuestions = (questions) => {
-    //     const generalQs = questions.filter( question => question.category === "General Knowledge");
-    //     setGeneralQuestions(generalQs);
-    //     return generalQuestions;
-    // }
+    const getHistoryQuestions = (array) => {
+        const historyQs = array.filter(question => question.category === "History" || question.category === "Mythology" || question.category === "Art")
+        return historyQs;
+    }
+
+    const getScienceQuestions = (array) => {
+        const scienceQs = array.filter(question => question.category === "Science & Nature" || question.category === "Science: Computers" || question.category === "Science: Mathematics")
+        return scienceQs;
+    }
+
+    const getEntertainmentQuestions = (array) => {
+        const entertainmentQs = array.filter(question => question.category === "Entertainment: Books" || "Entertainment: Film" || "Entertainment: Music" || "Entertainment: Television" || "Entertainment: Video Games")
+        return entertainmentQs;
+    }
+
+
     return (
         <>
             <BrowserRouter>
@@ -40,9 +57,9 @@ const QuestionContainer = () => {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path='general' element={<General questions = {questions}/>}/>
-                <Route path='/entertainment' element={<Entertainment/>}/>
-                <Route path='/science' element={<Science/>}/>
-                <Route path='/history' element={<History/>}/>
+                <Route path='/entertainment' element={<Entertainment questions = {entertainmentQuestions}/>}/>
+                <Route path='/science' element={<Science questions = {scienceQuestions}/>}/>
+                <Route path='/history' element={<History questions = {historyQuestions}/>}/>
                 
             </Routes>
             </BrowserRouter>

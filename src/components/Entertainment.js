@@ -1,8 +1,10 @@
-const Entertainment = () => {
+import QuestionList from "./QuestionList";
+const Entertainment = ({questions}) => {
 
     return (
         <>
-            <p>Entertainment</p>
+            <h2>Entertainment Questions!</h2>
+            <QuestionList questions = {questions}/>
         </>
     )
 }
