@@ -1,8 +1,31 @@
+import { useState } from "react";
+
 const Question = ({question}) => {
+
+    const [status,setStatus] = useState("");
+
+    const handleClickTrue = () => {
+        if (question.correct_answer === "True") {
+            setStatus("✅")
+        } else {
+          setStatus("❌")  
+        }
+        
+    }
+
+    const handleClickFalse = () => {
+        if (question.correct_answer === "False") {
+            setStatus("✅")
+        }else {
+            setStatus("❌")
+        }
+        
+    }
+
 
     return (
         <>
-            <h4>{question.question}</h4>
+            <li>{question.question} <button onClick={handleClickTrue}>True</button> <button onClick={handleClickFalse}>False</button> {status} </li>
         </>
     )
 }
