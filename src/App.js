@@ -1,5 +1,6 @@
 
 import './App.css';
+import Leaderboard from './components/Leaderboard';
 import NameForm from './components/NameForm';
 import QuestionContainer from './container/QuestionContainer';
 
@@ -8,6 +9,8 @@ function App() {
     <>
       <h1>Answer me this? 🕵️</h1>
       <QuestionContainer/>
+      
+
 
 
     
