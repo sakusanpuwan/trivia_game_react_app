@@ -1,0 +1,28 @@
+body {
+    background-color:aliceblue;
+    
+}
+
+li.qs {
+    background-color:white;
+}
+
+.historygif {
+    height: 300px;
+    width: 400px;
+}
+
+.entertaingif {
+    height: 300px;
+    width: 300px;
+}
+
+.generalgif {
+    height: 300px;
+    width: 300px
+}
+
+h2 {
+    text-align: center;
+}
+

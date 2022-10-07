@@ -5,6 +5,7 @@ import Home from "../components/Home";
 import Science from "../components/Science";
 import History from "../components/History";
 import { useEffect, useState } from "react";
+import '../QuestionContainer.css';
 
 
 const QuestionContainer = () => {
@@ -39,7 +40,7 @@ const QuestionContainer = () => {
     }
 
     const getEntertainmentQuestions = (array) => {
-        const entertainmentQs = array.filter(question => question.category === "Entertainment: Books" || "Entertainment: Film" || "Entertainment: Music" || "Entertainment: Television" || "Entertainment: Video Games")
+        const entertainmentQs = array.filter(question => question.category === "Entertainment: Books" || question.category === "Entertainment: Film" || question.category === "Entertainment: Music" || question.category === "Entertainment: Television" || question.category === "Entertainment: Video Games")
         return entertainmentQs;
     }
 
@@ -47,12 +48,12 @@ const QuestionContainer = () => {
     return (
         <>
             <BrowserRouter>
-            <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/general'>General</Link></li>
-                <li><Link to='/entertainment'>Entertainment</Link></li>
-                <li><Link to='/science'>Science</Link></li>
-                <li><Link to='/history'>History</Link></li>
+            <ul className="nav">
+                <li><Link to='/'>Home 🏠</Link></li>
+                <li><Link to='/general'>General 🌎</Link></li>
+                <li><Link to='/entertainment'>Entertainment 🍿</Link></li>
+                <li><Link to='/science'>Science 🔬</Link></li>
+                <li><Link to='/history'>History 🦖</Link></li>
             </ul>
             <Routes>
                 <Route path="/" element={<Home/>}/>

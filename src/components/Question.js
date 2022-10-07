@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../Category.css'
 const Question = ({question}) => {
 
     const [status,setStatus] = useState("");
@@ -25,7 +25,7 @@ const Question = ({question}) => {
 
     return (
         <>
-            <li>{question.question} <button onClick={handleClickTrue}>True</button> <button onClick={handleClickFalse}>False</button> {status} </li>
+            <li className="qs">{question.question} <button onClick={handleClickTrue}>True</button> <button onClick={handleClickFalse}>False</button> {status} </li>
         </>
     )
 }

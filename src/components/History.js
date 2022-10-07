@@ -1,4 +1,5 @@
 import QuestionList from "./QuestionList";
+import '../Category.css'
 const History = ({questions}) => {
     
     // const getHistoryQuestions = (array) => {
@@ -7,7 +8,8 @@ const History = ({questions}) => {
     // }
     return (
         <>
-            <h2>History</h2>
+            <h2>History Questions!</h2>
+            <img src="https://media.tenor.com/3C1d5-mEjmMAAAAC/horrible-histories-mathew-baynton.gif" className="historygif" ></img>
             <QuestionList questions = {questions}/>
         </>
     )
